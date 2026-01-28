@@ -1,18 +1,28 @@
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu AR</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
 
-<model-viewer 
-  src="food_garbage.glb" 
-  ios-src="food_garbage.usdz"
-  ar 
-  ar-modes="webxr scene-viewer quick-look" 
-  camera-controls 
-  ar-status="not-presenting">
-</model-viewer>
+    <model-viewer 
+        src="food_garbage.usdz" 
+        ios-src="food_garbage.usdz"
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        style="width: 100vw; height: 100vh;">
+    </model-viewer>
 
-<script>
-  // Ce script dit au téléphone : "Ouvre la caméra tout de suite !"
-  const modelViewer = document.querySelector("model-viewer");
-  modelViewer.addEventListener("load", () => {
-    modelViewer.activateAR();
-  });
-</script>
+    <script>
+        // Force l'ouverture de l'AR immédiatement
+        const modelViewer = document.querySelector("model-viewer");
+        modelViewer.addEventListener("load", () => {
+            modelViewer.activateAR();
+        });
+    </script>
+</body>
+</html>
